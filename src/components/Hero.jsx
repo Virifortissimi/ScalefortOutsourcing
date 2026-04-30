@@ -25,7 +25,7 @@ export default function Hero() {
     >
       <div className="template-shell relative z-10 pb-14 md:pb-20">
         <motion.div
-          className="relative min-h-[620px] overflow-visible rounded-[28px] bg-navy px-5 py-14 text-center shadow-[0_26px_70px_rgba(13,27,62,0.18)] sm:px-8 md:px-12 lg:px-16"
+          className="relative min-h-0 overflow-visible rounded-[28px] bg-navy px-5 py-10 text-center shadow-[0_26px_70px_rgba(13,27,62,0.18)] sm:px-8 sm:py-12 md:min-h-[620px] md:px-12 md:py-14 lg:px-16"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
@@ -48,7 +48,7 @@ export default function Hero() {
             Stronger Together for Nigerian companies
           </div>
 
-          <div className="relative mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center pb-24 md:pb-20">
+          <div className="relative mx-auto flex min-h-0 max-w-4xl flex-col items-center justify-center md:min-h-[500px] md:pb-24">
             <div className="rounded-[26px] bg-navy/54 px-4 py-7 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-[2px] sm:px-8 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function Hero() {
             style={{
               fontFamily: 'Sora, sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(3rem, 8vw, 5.5rem)',
+              fontSize: 'clamp(2.45rem, 12vw, 5.5rem)',
               lineHeight: 1.05,
               textShadow: '0 4px 24px rgba(0,0,0,0.38)',
             }}
@@ -99,12 +99,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 flex flex-wrap justify-center gap-4"
+            className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
           >
-            <a href="#contact" className="brand-button bg-white px-8 py-3.5 text-base text-navy shadow-xl hover:bg-cream">
+            <a href="#contact" className="brand-button w-full bg-white px-6 py-3.5 text-base text-navy shadow-xl hover:bg-cream sm:w-auto sm:px-8">
               Let's Build Together <ArrowRight size={18} />
             </a>
-            <a href="#services" className="brand-button border-2 border-white/80 px-8 py-3 text-base text-white hover:bg-white hover:text-navy">
+            <a href="#services" className="brand-button w-full border-2 border-white/80 px-6 py-3 text-base text-white hover:bg-white hover:text-navy sm:w-auto sm:px-8">
               Explore Talent
             </a>
           </motion.div>
@@ -125,7 +125,7 @@ export default function Hero() {
           </div>
 
           <motion.div
-            className="absolute bottom-5 left-5 right-5 grid gap-3 rounded-2xl bg-white/96 p-3 text-left shadow-2xl sm:grid-cols-2 lg:left-10 lg:right-10 lg:grid-cols-5"
+            className="relative mt-8 grid gap-3 rounded-2xl bg-white/96 p-3 text-left shadow-2xl sm:grid-cols-2 md:absolute md:bottom-5 md:left-5 md:right-5 md:mt-0 lg:left-10 lg:right-10 lg:grid-cols-5"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.78 }}
