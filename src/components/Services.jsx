@@ -6,11 +6,14 @@ import {
   Cloud,
   Code2,
   Database,
+  Handshake,
   Headphones,
   Layers,
+  Megaphone,
   PenTool,
   ShieldCheck,
   Sparkles,
+  Target,
   TrendingUp,
   Users,
 } from 'lucide-react';
@@ -41,7 +44,42 @@ const processSteps = [
 
 const serviceCards = [
   {
+    icon: Handshake,
+    templateKey: 'sales',
+    serviceLabel: 'Sales Outsourcing',
+    title: 'Sales Development & Growth Teams',
+    quote: '"More Pipeline. Better Conversations."',
+    description:
+      'Outsource sales talent who can support lead generation, customer outreach and revenue growth with a practical local-market approach.',
+    benefits: [
+      { icon: Target, title: 'Lead Generation', desc: 'Sales talent to research prospects, qualify opportunities and build healthier pipeline.' },
+      { icon: Megaphone, title: 'Outbound Outreach', desc: 'Support for calls, emails, follow-ups and campaigns that keep prospects engaged.' },
+      { icon: Users, title: 'Customer Relationship Support', desc: 'People who can manage conversations, update records and keep prospects moving.' },
+      { icon: TrendingUp, title: 'Growth-Focused Capacity', desc: 'Add sales support quickly when demand, campaigns or targets increase.' },
+    ],
+    badges: ['Sales', 'Lead Gen', 'Outbound', 'CRM', 'Follow-Up', 'Growth'],
+    ctaText: 'Grow Your Sales Team',
+  },
+  {
+    icon: Headphones,
+    templateKey: 'support',
+    serviceLabel: 'Support',
+    title: 'Customer & Technical Support Teams',
+    quote: '"Responsive Help. Happier Customers."',
+    description:
+      'Keep customers and internal users supported with reliable people who can handle questions, issues and daily service workflows.',
+    benefits: [
+      { icon: Headphones, title: 'Customer Support Coverage', desc: 'Responsive talent for customer questions, issue handling and service requests.' },
+      { icon: Clock, title: 'Reliable Follow-Up', desc: 'Support teams that keep tickets, conversations and escalations moving.' },
+      { icon: ClipboardCheck, title: 'Process Discipline', desc: 'People who can follow playbooks, document issues and keep service records clean.' },
+      { icon: ShieldCheck, title: 'Quality Support', desc: 'Steady communication that protects customer trust and internal delivery standards.' },
+    ],
+    badges: ['Customer Support', 'Tech Support', 'Tickets', 'Helpdesk', 'Follow-Up', 'SLA'],
+    ctaText: 'Scale Your Support',
+  },
+  {
     icon: Code2,
+    templateKey: 'engineering',
     serviceLabel: 'Engineering',
     title: 'Software Engineering Teams',
     quote: '"Great Code. Faster Delivery. Real Results."',
@@ -57,8 +95,43 @@ const serviceCards = [
     ctaText: 'Build Your Tech Team',
   },
   {
+    icon: Database,
+    templateKey: 'data',
+    serviceLabel: 'Data',
+    title: 'Data & Analytics Teams',
+    quote: '"Clearer Data. Smarter Decisions."',
+    description:
+      'Bring in data talent who can clean information, build reports and help your team make better business decisions.',
+    benefits: [
+      { icon: Database, title: 'Data Cleanup & Management', desc: 'Support for organizing, maintaining and improving business data quality.' },
+      { icon: TrendingUp, title: 'Reporting & Insights', desc: 'Analysts who turn raw information into useful reports and decision support.' },
+      { icon: ClipboardCheck, title: 'Operations Visibility', desc: 'Talent that helps teams track activity, performance and service outcomes.' },
+      { icon: Sparkles, title: 'Practical Analytics Support', desc: 'Flexible data help for campaigns, operations, product and leadership teams.' },
+    ],
+    badges: ['Data', 'Analytics', 'Reports', 'Dashboards', 'Cleanup', 'Insights'],
+    ctaText: 'Strengthen Your Data',
+  },
+  {
+    icon: Cloud,
+    templateKey: 'cloud',
+    serviceLabel: 'Cloud',
+    title: 'Cloud & DevOps Teams',
+    quote: '"Stronger Systems. Smoother Operations."',
+    description:
+      'Keep your technology running with cloud and DevOps talent that supports infrastructure, deployment and reliability workflows.',
+    benefits: [
+      { icon: Cloud, title: 'Cloud & DevOps Support', desc: 'Talent for infrastructure, deployment, automation and reliability workflows.' },
+      { icon: Layers, title: 'Deployment Operations', desc: 'Support for releases, environments, platform workflows and technical operations.' },
+      { icon: ShieldCheck, title: 'Reliability Practices', desc: 'People who help improve uptime, monitoring and operational stability.' },
+      { icon: Clock, title: 'Reliable Coverage', desc: 'Flexible support across time zones, workloads and changing business needs.' },
+    ],
+    badges: ['Cloud', 'DevOps', 'Infrastructure', 'Deployment', 'Automation', 'Reliability'],
+    ctaText: 'Scale Your Cloud Team',
+  },
+  {
     icon: PenTool,
-    serviceLabel: 'Product & Design',
+    templateKey: 'product',
+    serviceLabel: 'Product',
     title: 'Product, UI/UX & Digital Teams',
     quote: '"Better Products. Clearer Experiences."',
     description:
@@ -72,25 +145,9 @@ const serviceCards = [
     badges: ['UI/UX', 'Product', 'Research', 'Prototypes', 'MVPs', 'Design Systems'],
     ctaText: 'Shape Your Product',
   },
-  {
-    icon: Cloud,
-    serviceLabel: 'Cloud, Data & Ops',
-    title: 'Cloud, Data, Support & Tech Ops',
-    quote: '"Stronger Systems. Smoother Operations."',
-    description:
-      'Keep your technology running with cloud, data, QA, support and operations talent that strengthens daily delivery.',
-    benefits: [
-      { icon: Cloud, title: 'Cloud & DevOps Support', desc: 'Talent for infrastructure, deployment, automation and reliability workflows.' },
-      { icon: Database, title: 'Data & Analytics Talent', desc: 'Analysts and data specialists who help teams understand and use their information.' },
-      { icon: Headphones, title: 'Technical Support Teams', desc: 'Responsive support talent for customers, internal users and product operations.' },
-      { icon: Clock, title: 'Reliable Coverage', desc: 'Flexible support across time zones, workloads and changing business needs.' },
-    ],
-    badges: ['Cloud', 'DevOps', 'Data', 'QA', 'Tech Support', 'Operations'],
-    ctaText: 'Scale Your Operations',
-  },
 ];
 
-export default function Services() {
+export default function Services({ onContactPrefill }) {
   return (
     <section id="services" className="bg-white py-16 md:py-24">
       <div className="template-shell">
@@ -148,7 +205,7 @@ export default function Services() {
           <div className="lg:col-span-3">
             <span className="section-kicker mb-4">Talent We Provide</span>
             <h2 className="section-title">
-              Flexible Tech Talent for Every Stage of{' '}
+              Flexible Sales & Tech Talent for Every Stage of{' '}
               <span style={{ color: 'var(--color-yellow)' }}>Growth.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-gray leading-7">
@@ -174,9 +231,9 @@ export default function Services() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {serviceCards.map((card) => (
-            <ServiceCard key={card.title} {...card} />
+            <ServiceCard key={card.title} {...card} onContactPrefill={onContactPrefill} />
           ))}
         </div>
       </div>

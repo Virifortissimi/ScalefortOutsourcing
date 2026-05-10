@@ -5,6 +5,7 @@ import {
   ChevronDown,
   Cloud,
   Code2,
+  Handshake,
   Headphones,
   Layers,
   Palette,
@@ -15,14 +16,15 @@ import {
 } from 'lucide-react';
 
 const roles = [
+  { title: 'Sales Support', icon: Handshake, desc: 'Lead generation, outreach, follow-ups, CRM updates and pipeline support.' },
+  { title: 'Tech Support', icon: Headphones, desc: 'Customer and internal support for products, tools and operations.' },
   { title: 'Frontend Developers', icon: Code2, desc: 'React, responsive UI, dashboards and customer-facing web apps.' },
   { title: 'Backend Developers', icon: Layers, desc: 'APIs, integrations, databases, services and platform logic.' },
-  { title: 'UI/UX Designers', icon: Palette, desc: 'Product flows, prototypes, design systems and polished interfaces.' },
   { title: 'QA Engineers', icon: ShieldCheck, desc: 'Manual and automated testing that keeps releases dependable.' },
   { title: 'Data Analysts', icon: BarChart3, desc: 'Reporting, insights, data cleanup and decision support.' },
   { title: 'Cloud Engineers', icon: Cloud, desc: 'Deployments, infrastructure, DevOps workflows and reliability.' },
-  { title: 'Tech Support', icon: Headphones, desc: 'Customer and internal support for products, tools and operations.' },
   { title: 'Product Support', icon: Workflow, desc: 'Coordination, documentation, requirements and delivery alignment.' },
+  { title: 'UI/UX Designers', icon: Palette, desc: 'Product flows, prototypes, design systems and polished interfaces.' },
 ];
 
 const models = [
@@ -58,7 +60,7 @@ const faqs = [
   },
   {
     question: 'Can we hire one person or a full team?',
-    answer: 'Yes. Scalefort can support Nigerian companies with a single specialist, a small pod, or a broader team across engineering, product, design, cloud, data, QA and support.',
+    answer: 'Yes. Scalefort can support Nigerian companies with a single specialist, a small pod, or a broader team across sales, support, engineering, data, cloud and product.',
   },
   {
     question: 'How do you make sure talent fits our workflow?',
@@ -87,7 +89,7 @@ export default function AdditionalSections() {
               Specialists for the work your <span className="text-yellow">team needs next.</span>
             </h2>
             <p className="mt-4 text-base leading-7 text-gray">
-              Bring in the right people across product delivery, engineering, operations and support for your Nigerian company.
+              Bring in the right people across sales, support, engineering, data, cloud and product work for your Nigerian company.
             </p>
           </motion.div>
 
@@ -124,7 +126,7 @@ export default function AdditionalSections() {
               </h2>
             </div>
             <p className="text-base leading-7 text-gray">
-              Choose the support model that matches your Nigerian company today, then adapt as the team, product or workload changes.
+              Choose the support model that matches your Nigerian company today, then adapt as the team, product, sales pipeline or workload changes.
             </p>
           </div>
 
@@ -180,7 +182,7 @@ export default function AdditionalSections() {
                   Outsource confidently with <span className="text-yellow">Nigerian talent.</span>
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-white/72 md:text-base">
-                  Scalefort connects Nigerian companies with skilled Nigerian professionals who bring practical execution, flexibility and strong ownership to modern tech work.
+                  Scalefort connects Nigerian companies with skilled Nigerian professionals who bring practical execution, flexibility and strong ownership to modern sales and tech work.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-4 lg:col-span-3 sm:grid-cols-2">

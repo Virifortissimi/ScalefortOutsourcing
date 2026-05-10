@@ -4,19 +4,27 @@ import {
   Cloud,
   Code2,
   Database,
+  Handshake,
   Headphones,
   PenTool,
   ShieldCheck,
 } from 'lucide-react';
 
 const talentNodes = [
+  { label: 'Sales', icon: Handshake },
+  { label: 'Support', icon: Headphones },
   { label: 'Engineering', icon: Code2 },
-  { label: 'Product', icon: PenTool },
-  { label: 'Cloud', icon: Cloud },
   { label: 'Data', icon: Database },
+  { label: 'Cloud', icon: Cloud },
+  { label: 'Product', icon: PenTool },
 ];
 
-export default function Hero() {
+export default function Hero({ onContactPrefill }) {
+  const handleHeroContact = (templateKey) => (event) => {
+    event.preventDefault();
+    onContactPrefill(templateKey);
+  };
+
   return (
     <section
       id="hero"
@@ -55,7 +63,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className="section-kicker mb-4">Tech Talent Outsourcing</span>
+            <span className="section-kicker mb-4">Sales & Tech Talent Outsourcing</span>
           </motion.div>
 
           <motion.h1
@@ -90,8 +98,8 @@ export default function Hero() {
               textShadow: '0 2px 18px rgba(0,0,0,0.5)',
             }}
           >
-            We help Nigerian companies outsource the tech talent they need - from
-            engineering and product to cloud, data, QA, support and operations -
+            We help Nigerian companies outsource the talent they need - from
+            sales and support to engineering, data, cloud and product -
             so teams can move faster without the hiring overhead.
           </motion.p>
 
@@ -101,10 +109,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
           >
-            <a href="#contact" className="brand-button w-full bg-white px-6 py-3.5 text-base text-navy shadow-xl hover:bg-cream sm:w-auto sm:px-8">
+            <a href="#contact" onClick={handleHeroContact('general')} className="brand-button w-full bg-white px-6 py-3.5 text-base text-navy shadow-xl hover:bg-cream sm:w-auto sm:px-8">
               Let's Build Together <ArrowRight size={18} />
             </a>
-            <a href="#services" className="brand-button w-full border-2 border-white/80 px-6 py-3 text-base text-white hover:bg-white hover:text-navy sm:w-auto sm:px-8">
+            <a href="#contact" onClick={handleHeroContact('consultation')} className="brand-button w-full border-2 border-white/80 px-6 py-3 text-base text-white hover:bg-white hover:text-navy sm:w-auto sm:px-8">
               Explore Talent
             </a>
           </motion.div>
@@ -119,13 +127,13 @@ export default function Hero() {
               textShadow: '0 2px 12px rgba(0,0,0,0.55)',
             }}
           >
-            Built for Nigerian teams that need flexible tech capacity
+            Built for Nigerian teams that need flexible sales and tech capacity
           </motion.p>
             </div>
           </div>
 
           <motion.div
-            className="relative mt-8 grid gap-3 rounded-2xl bg-white/96 p-3 text-left shadow-2xl sm:grid-cols-2 md:absolute md:bottom-5 md:left-5 md:right-5 md:mt-0 lg:left-10 lg:right-10 lg:grid-cols-5"
+            className="relative mt-8 grid gap-3 rounded-2xl bg-white/96 p-3 text-left shadow-2xl sm:grid-cols-2 md:absolute md:bottom-5 md:left-5 md:right-5 md:mt-0 lg:left-10 lg:right-10 lg:grid-cols-6"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.78 }}
@@ -141,15 +149,11 @@ export default function Hero() {
                 <p className="text-sm font-bold text-navy">{label}</p>
               </motion.div>
             ))}
-            <motion.div className="flex items-center gap-3 rounded-xl bg-navy px-3 py-3 text-white" whileHover={{ y: -4 }}>
-              <Headphones size={20} color="var(--color-yellow)" />
-              <p className="text-sm font-bold">Support</p>
-            </motion.div>
           </motion.div>
 
           <div className="absolute -bottom-7 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-3 rounded-full bg-white px-5 py-3 text-xs font-bold text-navy shadow-xl md:flex">
             <ShieldCheck size={16} color="var(--color-yellow)" />
-            Vetted Nigerian tech talent, ready to join your workflow
+            Vetted Nigerian sales and tech talent, ready to join your workflow
           </div>
         </motion.div>
       </div>

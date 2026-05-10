@@ -2,9 +2,12 @@ const footerLinks = [
   {
     title: 'Services',
     links: [
+      ['Sales Outsourcing', '#services'],
+      ['Support Talent', '#services'],
       ['Engineering Talent', '#services'],
-      ['Product & Design Talent', '#services'],
-      ['Cloud, Data & Tech Ops', '#services'],
+      ['Data Talent', '#services'],
+      ['Cloud Talent', '#services'],
+      ['Product Talent', '#services'],
     ],
   },
   {

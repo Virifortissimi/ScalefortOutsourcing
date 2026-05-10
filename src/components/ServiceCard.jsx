@@ -11,7 +11,16 @@ export default function ServiceCard({
   badges,
   ctaText,
   ctaHref,
+  templateKey,
+  onContactPrefill,
 }) {
+  const handleCtaClick = (event) => {
+    if (!onContactPrefill || !templateKey) return;
+
+    event.preventDefault();
+    onContactPrefill(templateKey);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -145,6 +154,7 @@ export default function ServiceCard({
 
       <a
         href={ctaHref || '#contact'}
+        onClick={handleCtaClick}
         className="brand-button brand-button-primary px-6 py-3 text-[0.9rem]"
       >
         {ctaText} <ArrowRight size={17} />

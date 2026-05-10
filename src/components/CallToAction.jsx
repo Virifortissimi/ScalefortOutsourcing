@@ -4,7 +4,7 @@ import { ArrowRight, Globe, Mail, Phone } from 'lucide-react';
 
 const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || '/api/forms/outsourcing-contact';
 
-export default function CallToAction() {
+export default function CallToAction({ prefill, onPrefillChange }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState(null);
 
@@ -34,6 +34,10 @@ export default function CallToAction() {
     setIsSubmitting(true);
     setToast(null);
     form.reset();
+    onPrefillChange({
+      requestedRole: '',
+      message: '',
+    });
 
     try {
       const response = await fetch(contactApiUrl, {
@@ -170,8 +174,22 @@ export default function CallToAction() {
               <input name="companyWebsite" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <input name="name" className="rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow" placeholder="Your Name" required />
               <input name="email" className="rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow" placeholder="Your Email" type="email" required />
-              <input name="requestedRole" className="rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow md:col-span-2" placeholder="Role or team you need" required />
-              <textarea name="message" className="min-h-32 rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow md:col-span-2" placeholder="Message" required />
+              <input
+                name="requestedRole"
+                className="rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow md:col-span-2"
+                placeholder="Role or team you need"
+                required
+                value={prefill.requestedRole}
+                onChange={(event) => onPrefillChange({ ...prefill, requestedRole: event.target.value })}
+              />
+              <textarea
+                name="message"
+                className="min-h-32 rounded-lg border-0 px-4 py-3 text-sm text-navy outline-none focus:ring-2 focus:ring-yellow md:col-span-2"
+                placeholder="Message"
+                required
+                value={prefill.message}
+                onChange={(event) => onPrefillChange({ ...prefill, message: event.target.value })}
+              />
             </div>
 
             <button className="brand-button mt-4 w-full bg-white px-6 py-3 text-sm text-navy hover:bg-cream disabled:cursor-not-allowed disabled:opacity-70" type="submit" disabled={isSubmitting}>
